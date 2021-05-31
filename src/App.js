@@ -3,11 +3,15 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 import './App.css';
 import NavBar from './components/layout/NavBar';
+import Dashboard from './components/layout/Dashboard';
 
 const App = () => {
   return (
     <div className="App">
-      <NavBar />
+      <NavBar /> 
+      <div className="container">
+        <Dashboard />
+      </div>
      </div>
   );
 }
