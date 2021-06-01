@@ -7,19 +7,23 @@
     background-color: rgb(14, 13, 13);
     background-clip: border-box;
     border-radius: .25rem;
+    box-shadow: 6px 6px rgba(206, 130, 142, 1);
+    -webkit-box-shadow: 6px 6px rgba(206, 130, 142, 1);
+    -moz-box-shadow: 6px 6px rgba(206, 130, 142, 1);
 }
 
 .card_header {
     padding: .5rem 1rem;
     margin-bottom: 0;
-    background-color: #CE828E;
+    background-color: #242424;
     border-radius: .4rem .4rem 0rem 0rem;
-    color: black;
+    color: white;
+    border-bottom: solid .02rem #e4e4e46c;
 }
 .card_body {
     flex: 1 1 auto;
     padding: 1rem 1rem;
-    background-color: #100F0F;
+    background-color: #242424;
     border-radius: 0rem 0rem .4rem .4rem;
     color: #fff;
 }
