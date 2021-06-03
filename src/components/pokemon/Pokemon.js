@@ -76,7 +76,7 @@ class Pokemon extends Component {
 			return ability.ability.name
 				.toLowerCase()
 				.split('-')
-				.map((s) => s.charAt(0).toUpperCase() + s.sub(1))
+				.map((s) => s.charAt(0).toUpperCase() + s.substring(1))
 				.join(" ");
 		});
 
@@ -89,7 +89,7 @@ class Pokemon extends Component {
             return `${stat.effort} ${stat.name}`
             .toLowerCase()
             .split('-')
-            .map((s) => s.charAt(0).toUpperCase() + s.sub(1))
+            .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
             .join(" ");
         }).join(', ');
 
@@ -114,7 +114,7 @@ class Pokemon extends Component {
                 return group.name
                 .toLowerCase()
 				.split('-')
-				.map((s) => s.charAt(0).toUpperCase() + s.sub(1))
+				.map((s) => s.charAt(0).toUpperCase() + s.substring(1))
 				.join(" ");
             }).join(', ' )
 
@@ -127,8 +127,27 @@ class Pokemon extends Component {
                 catchRate,
                 eggGroups,
                 hatchSteps
-            })
-        })
+            });
+        });
+
+        this.setState({
+            imageUrl,
+            pokemonIndex,
+            name,
+            types,
+            stats : {
+                hp,
+                attack,
+                defense,
+                speed,
+                specialAttack,
+                specialDefence
+            },
+            height,
+            weight,
+            abilities,
+            evs
+        });
 
 	}
 	render() {
