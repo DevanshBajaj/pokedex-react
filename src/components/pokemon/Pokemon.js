@@ -35,6 +35,8 @@ class Pokemon extends Component {
 
 		const pokemonRes = await axios.get(pokemonUrl);
 
+        // data
+
 		const name = pokemonRes.data.name;
 		const imageUrl = pokemonRes.data.sprites.front_default;
 
@@ -89,7 +91,45 @@ class Pokemon extends Component {
             .split('-')
             .map((s) => s.charAt(0).toUpperCase() + s.sub(1))
             .join(" ");
-        }).join(' ');
+        }).join(', ');
+
+
+        // description
+        await axios.get(pokemonSpeciesUrl).then(res => {
+            let description = ''; 
+            res.data.flavor_text_entries.some(flavor => {
+                if (flavor.language.name === 'en') {
+                    description = flavor.flavor_text;
+                    return;
+                }
+            });
+
+            const femaleRate = res.data['gender_rate'];
+            const genderRatioFemale = 12.5 * femaleRate;
+            const genderRatioMale = 12.5 * (8 - femaleRate);
+
+            const catchRate = Math.round((100/255) * res.data['capture_rate']);
+
+            const eggGroups = res.data['egg_groups'].map(group => {
+                return group.name
+                .toLowerCase()
+				.split('-')
+				.map((s) => s.charAt(0).toUpperCase() + s.sub(1))
+				.join(" ");
+            }).join(', ' )
+
+            const hatchSteps = 255 * (res.data['hatch_counter'] + 1)
+
+            this.setState({
+                description,
+                genderRatioFemale,
+                genderRatioMale,
+                catchRate,
+                eggGroups,
+                hatchSteps
+            })
+        })
+
 	}
 	render() {
 		return (
