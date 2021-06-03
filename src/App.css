@@ -1,5 +1,9 @@
 .App {
     padding-top: 4rem;
     min-height: 100vh;
-    background-color:#100F0F;
+    background-color: #242424;
+    opacity: 1;
+    color: white;
+    background: radial-gradient(circle, transparent 20%, #242424 20%, #242424 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #242424 20%, #242424 80%, transparent 80%, transparent) 17.5px 17.5px, linear-gradient(rgba(206,130,142,1) 1.4000000000000001px, transparent 1.4000000000000001px) 0 -0.7000000000000001px, linear-gradient(90deg, rgba(206,130,142,1) 1.4000000000000001px, #242424 1.4000000000000001px) -0.7000000000000001px 0;
+    background-size: 35px 35px, 35px 35px, 17.5px 17.5px, 17.5px 17.5px;
 }

@@ -4,12 +4,21 @@
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background-color: rgb(14, 13, 13);
     background-clip: border-box;
+    border: 2rem #fff;
     border-radius: .25rem;
     box-shadow: 6px 6px rgba(206, 130, 142, 1);
     -webkit-box-shadow: 6px 6px rgba(206, 130, 142, 1);
     -moz-box-shadow: 6px 6px rgba(206, 130, 142, 1);
+    -moz-user-select: none;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.card:hover {
+    box-shadow: 4px 4px rgba(206, 130, 142, 1);
+    -webkit-transition: box-shadow .4s ease-in;
+    transition: box-shadow .4s ease-in;
 }
 
 .card_header {
