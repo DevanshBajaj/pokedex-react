@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import styles from './NavBar.module.css';
 
 
 const NavBar = () => {
   return (
-    <div>
+    <Fragment>
       <nav className={styles.navbar} >
         <a href="/">POKEDEX</a>
       </nav>
-    </div>
+    </Fragment>
   )
 };
 

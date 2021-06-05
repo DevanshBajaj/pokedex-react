@@ -8,6 +8,9 @@
     margin: 0px;
     padding: .4rem .6rem;
     z-index: 9999;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
 }
 
 .navbar a {
