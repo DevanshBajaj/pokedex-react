@@ -3,6 +3,27 @@ import React, { Component } from "react";
 import axios from "axios";
 import styles from './PokemonCard.module.css';
 
+const typeColors = {
+	normal: '65655F',
+	poison: 'A2599A',
+	psychic: 'FA7BB7',
+	grass: '85CD4D',
+	Ground: 'EFD060',
+	Ice: '9BF5FF',
+	fire: 'FA5442',
+	rock: 'CCBC6E',
+	dragon:'8574FE',
+	water:'55ABFF',
+	bug:'C2D121',
+	dark:'9F857F',
+	lighting:'A85645',
+	ghost:'7670C9',
+	steel:'C1C0D4',
+	flying:'7AA4FF',
+	electric:'FFED57',
+	fairy:'F5B6FE'
+};
+
 class Pokemon extends Component {
 	state = {
 		name: "",
@@ -162,13 +183,55 @@ class Pokemon extends Component {
 								<h5>{this.state.pokemonIndex}</h5>
 							</div>
 							<div className="col-7">
-							<div className="float-right">{this.state.types.map(type => (
-								<span key={type}
-								className="badge badge-pill mr-1">{type}</span>
-							))}</div>
+								<div className="float-end">{this.state.types.map(type => (
+									<span 
+                    key={type}
+                    className="badge rounded-pill me-2"
+                    style={{backgroundColor: `#${typeColors[type]}`,
+                    color:'white'}}
+                    >{type.toLowerCase()
+                    .split('-')
+                    .map((s) => s.charAt(0)
+                    .toUpperCase() + s.substring(1))
+                    .join(" ")};
+                  </span>
+								))}</div>
 							</div>
 						</div>
 					</div>
+          <div className={styles.card_body}>
+            <div className="row align-items-center">
+              <div className='col-md-3'>
+                <img 
+                src={this.state.imageUrl} 
+                alt="pokemonImage"
+                className="card-img-top mt-2" >
+                </img>
+              </div>
+              <div className="col-md-9">
+                <h4 className="mx-auto">{this.state.name.toLowerCase()
+                    .split('-')
+                    .map((s) => s.charAt(0)
+                    .toUpperCase() + s.substring(1))
+                    .join(" ")}
+                </h4>
+                <div className='row align-items-center'>
+                  <div className='col-12 col-md-3'>HP</div>
+                  <div className="col-12 col-md-9">
+                    <div className='progress'>
+                      <div className='progress-bar' vrole='progressBar'
+                      style={{width: `${this.state.stats.hp}%` ,backgroundColor:'rgba(206, 130, 142, 1)'}}
+                      aria-valuenow='25'
+                      aria-valuemin='0'
+                      aria-valuemax='100'
+                      ><small>{this.state.stats.hp}</small></div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
 				</div>
 			</div>
 		);
