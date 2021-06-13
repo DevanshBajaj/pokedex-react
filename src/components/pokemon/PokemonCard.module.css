@@ -23,7 +23,6 @@
 
 .disabled {
     box-shadow: 4px 4px rgba(206, 130, 142, 1);
-    pointer-events: none;
 }
 
 .card_header {
@@ -32,7 +31,7 @@
     background-color: #242424;
     border-radius: .4rem .4rem 0rem 0rem;
     color: white;
-    border-bottom: solid .02rem #e4e4e46c;
+    border-bottom: solid .1rem #e4e4e46c;
 }
 .card_body {
     flex: 1 1 auto;
@@ -45,4 +44,12 @@
 .card_title {
     margin-bottom: .5rem;
     text-align: center;
+}
+
+.card_footer {
+    border-radius: 0rem 0em .4rem .4rem;
+    color: #6c757d;
+    padding: .6rem 1rem;
+    background-color: #242424;
+    border-top: solid 0rem #e4e4e46c;
 }
