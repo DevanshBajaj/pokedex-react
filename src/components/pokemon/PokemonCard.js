@@ -35,7 +35,7 @@ class PokemonCard extends Component {
 	render() {
 		return (
 			<div className="col-md-3 col-sm-6 mb-5">
-        <Link to={`pokemon/${this.state.pokemonIndex}`}>
+        <Link style={{textDecoration: 'none'}} to={`pokemon/${this.state.pokemonIndex}` }>
           <div className={styles.card}>
             <h5 className={styles.card_header}>{this.state.pokemonIndex}</h5>
             <div className={styles.card_body}>
