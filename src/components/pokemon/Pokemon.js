@@ -37,7 +37,7 @@ class Pokemon extends Component {
 			defense: "",
 			speed: "",
 			specialAttack: "",
-			specialDefence: "",
+			specialDefense: "",
 		},
 		height: "",
 		weight: "",
@@ -63,7 +63,7 @@ class Pokemon extends Component {
 		const name = pokemonRes.data.name;
 		const imageUrl = pokemonRes.data.sprites.front_default;
 
-		let { hp, attack, defense, speed, specialAttack, specialDefence } = " ";
+		let { hp, attack, defense, speed, specialAttack, specialDefense } = " ";
 
 		pokemonRes.data.stats.map((stat) => {
 			// eslint-disable-next-line default-case
@@ -83,8 +83,8 @@ class Pokemon extends Component {
 				case "special-attack":
 					specialAttack = stat["base_stat"];
 					break;
-				case "special-defence":
-					specialDefence = stat["base_stat"];
+				case "special-defense":
+					specialDefense = stat["base_stat"];
 					break;
 			}
 		});
@@ -164,7 +164,7 @@ class Pokemon extends Component {
                 defense,
                 speed,
                 specialAttack,
-                specialDefence
+                specialDefense
             },
             height,
             weight,
@@ -175,9 +175,9 @@ class Pokemon extends Component {
 	}
 	render() {
 		return (
-			<div className='col'>
-				<div className={styles.card}>
-					<div className={styles.card_header}>
+		<div className='col'>
+			<div className={(styles.card, styles.disabled)}>
+				<div className={styles.card_header}>
 						<div className="row">
 							<div className="col-5">
 								<h5>{this.state.pokemonIndex}</h5>
@@ -185,55 +185,124 @@ class Pokemon extends Component {
 							<div className="col-7">
 								<div className="float-end">{this.state.types.map(type => (
 									<span 
-                    key={type}
-                    className="badge rounded-pill me-2"
-                    style={{backgroundColor: `#${typeColors[type]}`,
-                    color:'white'}}
-                    >{type.toLowerCase()
-                    .split('-')
-                    .map((s) => s.charAt(0)
-                    .toUpperCase() + s.substring(1))
-                    .join(" ")};
-                  </span>
+										key={type}
+										className="badge rounded-pill me-2"
+										style={{backgroundColor: `#${typeColors[type]}`,
+										color:'white'}}
+										>{type.toLowerCase()
+										.split('-')
+										.map((s) => s.charAt(0)
+										.toUpperCase() + s.substring(1))
+										.join(" ")};
+									</span>
 								))}</div>
 							</div>
 						</div>
 					</div>
-          <div className={styles.card_body}>
-            <div className="row align-items-center">
-              <div className='col-md-3'>
-                <img 
-                src={this.state.imageUrl} 
-                alt="pokemonImage"
-                className="card-img-top mt-2" >
-                </img>
-              </div>
-              <div className="col-md-9">
-                <h4 className="mx-auto">{this.state.name.toLowerCase()
-                    .split('-')
-                    .map((s) => s.charAt(0)
-                    .toUpperCase() + s.substring(1))
-                    .join(" ")}
-                </h4>
-                <div className='row align-items-center'>
-                  <div className='col-12 col-md-3'>HP</div>
-                  <div className="col-12 col-md-9">
-                    <div className='progress'>
-                      <div className='progress-bar' vrole='progressBar'
-                      style={{width: `${this.state.stats.hp}%` ,backgroundColor:'rgba(206, 130, 142, 1)'}}
-                      aria-valuenow='25'
-                      aria-valuemin='0'
-                      aria-valuemax='100'
-                      ><small>{this.state.stats.hp}</small></div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
+				<div className={styles.card_body}>
+					<div className="row align-items-center">
+						<div className='col-md-3'>
+							<img 
+							src={this.state.imageUrl} 
+							alt="pokemonImage"
+							className="card-img-top mt-2" >
+							</img>
+						</div>
+						<div className="col-md-9">
+							<h4 className="mx-auto">{this.state.name.toLowerCase()
+								.split('-')
+								.map((s) => s.charAt(0)
+								.toUpperCase() + s.substring(1))
+								.join(" ")}
+							</h4>
+							<div className='row align-items-center'>
+							<div className='col-12 col-md-3'>HP</div>
+							<div className="col-12 col-md-9">
+								<div className='progress'>
+								<div className='progress-bar' vrole='progressBar'
+								style={{width: `${this.state.stats.hp}%` ,backgroundColor:'rgba(206, 130, 142, 1)'}}
+								aria-valuenow='25'
+								aria-valuemin='0'
+								aria-valuemax='100'
+								><small>{this.state.stats.hp}</small></div>
+								</div>
+							</div>
+							</div>
+							<div className='row align-items-center'>
+							<div className='col-12 col-md-3'>Attack</div>
+							<div className="col-12 col-md-9">
+								<div className='progress'>
+								<div className='progress-bar' vrole='progressBar'
+								style={{width: `${this.state.stats.attack}%` ,backgroundColor:'rgba(206, 130, 142, 1)'}}
+								aria-valuenow='25'
+								aria-valuemin='0'
+								aria-valuemax='100'
+								><small>{this.state.stats.attack}</small></div>
+								</div>
+							</div>
+							</div>
+							<div className='row align-items-center'>
+							<div className='col-12 col-md-3'>Defense</div>
+							<div className="col-12 col-md-9">
+								<div className='progress'>
+								<div className='progress-bar' vrole='progressBar'
+								style={{width: `${this.state.stats.defense}%` ,backgroundColor:'rgba(206, 130, 142, 1)'}}
+								aria-valuenow='25'
+								aria-valuemin='0'
+								aria-valuemax='100'
+								><small>{this.state.stats.defense}</small></div>
+								</div>
+							</div>
+							</div>
+							<div className='row align-items-center'>
+							<div className='col-12 col-md-3'>Speed</div>
+							<div className="col-12 col-md-9">
+								<div className='progress'>
+								<div className='progress-bar' vrole='progressBar'
+								style={{width: `${this.state.stats.speed}%` ,backgroundColor:'rgba(206, 130, 142, 1)'}}
+								aria-valuenow='25'
+								aria-valuemin='0'
+								aria-valuemax='100'
+								><small>{this.state.stats.speed}</small></div>
+								</div>
+							</div>
+							</div>
+							<div className='row align-items-center'>
+							<div className='col-12 col-md-3'>Special Attack</div>
+							<div className="col-12 col-md-9">
+								<div className='progress'>
+								<div className='progress-bar' vrole='progressBar'
+								style={{width: `${this.state.stats.specialAttack}%` ,backgroundColor:'rgba(206, 130, 142, 1)'}}
+								aria-valuenow='25'
+								aria-valuemin='0'
+								aria-valuemax='100'
+								><small>{this.state.stats.specialAttack}</small></div>
+								</div>
+							</div>
+							</div>
+							<div className='row align-items-center'>
+							<div className='col-12 col-md-3'>Special Defense</div>
+							<div className="col-12 col-md-9">
+								<div className='progress'>
+								<div className='progress-bar' vrole='progressBar'
+								style={{width: `${this.state.stats.specialDefense}%` ,backgroundColor:'rgba(206, 130, 142, 1)'}}
+								aria-valuenow='25'
+								aria-valuemin='0'
+								aria-valuemax='100'
+								><small>{this.state.stats.specialDefense}</small></div>
+								</div>
+							</div>
+							</div>
+						</div>
+						<div className='row mt-1'>
+							<div className='col'>
+								<p className='p-4 text-break'><b>Description:</b><br />{this.state.description}</p>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
+		</div>
 		);
 	}
 }

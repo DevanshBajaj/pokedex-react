@@ -21,6 +21,11 @@
     transition: box-shadow .4s ease-in;
 }
 
+.disabled {
+    box-shadow: 4px 4px rgba(206, 130, 142, 1);
+    pointer-events: none;
+}
+
 .card_header {
     padding: .5rem 1rem;
     margin-bottom: 0;
