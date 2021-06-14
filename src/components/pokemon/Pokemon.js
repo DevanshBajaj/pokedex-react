@@ -331,9 +331,9 @@ class Pokemon extends Component {
 									<h6 className="float-right">Gender Ratio:</h6>
 								</div>
 								<div className="col-6">
-									<div class="progress">
+									<div className="progress">
 									<div
-										class="progress-bar"
+										className="progress-bar"
 										role="progressbar"
 										style={{
 										width: `${this.state.genderRatioFemale}%`,
@@ -346,7 +346,7 @@ class Pokemon extends Component {
 										<small>{this.state.genderRatioFemale}%</small>
 									</div>
 									<div
-										class="progress-bar"
+										className="progress-bar"
 										role="progressbar"
 										style={{
 										width: `${this.state.genderRatioMale}%`,

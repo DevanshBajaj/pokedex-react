@@ -53,3 +53,8 @@
     background-color: #242424;
     border-top: solid 0rem #e4e4e46c;
 }
+
+.card_footer a {
+    text-decoration: none;
+    color: rgb(224, 117, 133);
+}
