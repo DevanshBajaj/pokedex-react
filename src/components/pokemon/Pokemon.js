@@ -94,14 +94,14 @@ class Pokemon extends Component {
 			Math.round((pokemonRes.data.height * 0.328084 + 0.0001) * 100) / 100;
 		const weight = Math.round(pokemonRes.data.weight / 10);
 
-		const types = pokemonRes.data.types.map((type) => type.type.name);
+		const types = pokemonRes.data.types.map((type) => type.type.name)
 		const abilities = pokemonRes.data.abilities.map((ability) => {
 			return ability.ability.name
 				.toLowerCase()
 				.split('-')
 				.map((s) => s.charAt(0).toUpperCase() + s.substring(1))
-				.join(" ");
-		});
+				.join(" ")
+		}).join(', ')
 
         const evs = pokemonRes.data.stats.filter(stat => {
             if (stat.effort > 0) {
@@ -109,12 +109,12 @@ class Pokemon extends Component {
             }
             return false;
         }).map(stat => {
-            return `${stat.effort} ${stat.name}`
+            return `${stat.effort}, ${stat.name}`
             .toLowerCase()
             .split('-')
             .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
-            .join(" ");
-        }).join(', ');
+            .join(" ")
+        }).join(', ')
 
 
         // description
@@ -138,7 +138,7 @@ class Pokemon extends Component {
                 .toLowerCase()
 				.split('-')
 				.map((s) => s.charAt(0).toUpperCase() + s.substring(1))
-				.join(" ");
+				.join(" ")
             }).join(', ' )
 
             const hatchSteps = 255 * (res.data['hatch_counter'] + 1)
@@ -193,7 +193,7 @@ class Pokemon extends Component {
 										.split('-')
 										.map((s) => s.charAt(0)
 										.toUpperCase() + s.substring(1))
-										.join(" ")};
+										.join(" ")}
 									</span>
 								))}</div>
 							</div>
