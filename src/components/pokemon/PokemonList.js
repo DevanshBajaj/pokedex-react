@@ -15,7 +15,7 @@ const PokemonList = (props) => {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			let res = await axios.get("https://pokeapi.co/api/v2/pokemon/?limit=300");
+			let res = await axios.get("https://pokeapi.co/api/v2/pokemon/?limit=180");
 			setUrl({ ...url, pokemon: res.data.results });
 		}
 		fetchData()
