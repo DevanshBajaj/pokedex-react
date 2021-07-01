@@ -1,6 +1,5 @@
 import React, { useState,useEffect, lazy, Suspense} from "react";
 import axios from "axios";
-import spinner from './spinner.gif';
 import styles from './PokemonList.module.css'
 
 const PokemonCard = lazy(() => import('./PokemonCard'))
@@ -42,7 +41,7 @@ const PokemonList = (props) => {
 					{url.pokemon.map(pokemon =>
 						pokemon.name.includes(filter) &&
 						(
-						<Suspense key={Math.random().toString()} fallback={<h1 style={{color: 'rgb(224, 117, 133)'}}>Loading List....</h1>}>
+						<Suspense key={Math.random().toString()} fallback={<p></p>}>
 							<PokemonCard
 							key={Math.random().toString()}
 							name={pokemon.name}
@@ -52,7 +51,7 @@ const PokemonList = (props) => {
 					))}
 				</div>
 			) : (
-				<img src={spinner} alt='loading'></img>
+				<h1 style={{color: 'rgb(224, 117, 133)'}}>Loading List....</h1>
 			)}
 		</React.Fragment>
 	);
