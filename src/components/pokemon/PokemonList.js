@@ -23,15 +23,17 @@ const PokemonList = (props) => {
 	}, [])
 
 	const handleSearchChange = (event) => {
-		setFilter(event.target.value)
+		event.preventDefault();
+		setFilter(event.target.value.toLowerCase())
 	}
 
 	return (
 		<React.Fragment>
 			<div className={styles.searchbox}>
 				<input
-					type="search" 
-					placeholder="Search name" 
+					type="text" 
+					aria-label="search"
+					placeholder="Search Pokemon" 
 					onChange={handleSearchChange}
 				/>
         	</div>
