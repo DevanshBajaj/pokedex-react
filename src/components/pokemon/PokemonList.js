@@ -29,15 +29,15 @@ const PokemonList = (props) => {
 	return (
 		<React.Fragment>
 			<div className={styles.searchbox}>
-				<input 
-					type="text" 
+				<input
+					type="search" 
 					placeholder="Search name" 
 					onChange={handleSearchChange}
 				/>
         	</div>
 			{url.pokemon ? (
 				<div className="row">
-					{url.pokemon.map(pokemon =>  
+					{url.pokemon.map(pokemon =>
 						pokemon.name.includes(filter) &&
 						(
 						<Suspense key={Math.random().toString()} fallback={<h1 style={{color: 'rgb(224, 117, 133)'}}>Loading List....</h1>}>
@@ -45,7 +45,7 @@ const PokemonList = (props) => {
 							key={Math.random().toString()}
 							name={pokemon.name}
 							url={pokemon.url}
-						/>
+							/>
 						</Suspense>
 					))}
 				</div>
