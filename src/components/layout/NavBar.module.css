@@ -2,17 +2,24 @@
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: #CE828E;
+    background-color: #242424;
     height: 40px;
     margin: 0px;
     padding: .4rem .6rem;
     z-index: 9999;
     display: flex;
     flex-wrap: wrap;
-    align-content: space-between;
+    align-content: center;
+    border-bottom: 2px solid #CE828E;
 }
 
 .navbar a {
     text-decoration: none;
-    color: black;
+    color: #CE828E;
+}
+
+.navbar img {
+    width: 1.5rem;
+    height:1.5rem; 
+    margin-right: 0.5rem;
 }
