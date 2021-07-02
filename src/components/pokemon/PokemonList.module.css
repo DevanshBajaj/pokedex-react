@@ -8,15 +8,12 @@
 .searchbox input {
     border-radius: 6px;
     padding: .2rem 1rem;
+    background-color: #242424;
     border: 2px solid rgba(206, 130, 142, 1);
+    color: white;
 }
 .searchbox input:focus {
     outline: rgba(206, 130, 142, 1);
-}
-.searchbox :hover {
-    box-shadow: 2px 2px rgba(206, 130, 142, 1);
-    -webkit-transition: box-shadow .4s ease-out;
-    transition: box-shadow .4s ease-out;
 }
 
 ::placeholder {
