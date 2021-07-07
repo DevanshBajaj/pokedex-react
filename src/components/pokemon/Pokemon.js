@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import styles from './PokemonCard.module.css';
+import Spinner from './spinner.gif'
 
 const typeColors = {
 	normal: '65655F',
@@ -47,6 +48,7 @@ class Pokemon extends Component {
 		genderRatioFemale: "",
 		evs: "",
 		hatchSteps: "",
+		imageLoading: true,
 	};
 
 	async componentDidMount() {
@@ -202,10 +204,21 @@ class Pokemon extends Component {
 				<div className={styles.card_body}>
 					<div className="row align-items-center">
 						<div className='col-md-3'>
+							{this.state.imageLoading ? <img 
+							src={Spinner}
+							alt="spinner"
+							className="card-img-top d-block mt-2"
+							></img> : null }
 							<img 
 							src={this.state.imageUrl} 
 							alt="pokemonImage"
-							className="card-img-top mt-2" >
+							className="card-img-top mt-2"
+							onLoad={() => this.setState({imageLoading: false})} 
+							style={ 
+								this.state.imageLoading
+                    			? null
+                    			: { display: "block" }
+                			}>
 							</img>
 						</div>
 						<div className="col-md-9">
