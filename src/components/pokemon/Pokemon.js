@@ -208,6 +208,7 @@ class Pokemon extends Component {
 							src={Spinner}
 							alt="spinner"
 							className="card-img-top d-block mt-2"
+							style={{width:"40%", height: "40%"}}
 							></img> : null }
 							<img 
 							src={this.state.imageUrl} 
