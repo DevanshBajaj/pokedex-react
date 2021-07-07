@@ -2,7 +2,14 @@
 import React, { Component } from "react";
 import axios from "axios";
 import styles from './PokemonCard.module.css';
-import Spinner from './spinner.gif'
+import styled from "styled-components";
+import LottieAnimation from "../../Lottie";
+import spinner from "../../lotties/spinner.json";
+
+const Sprite = styled.img`
+	display: none;
+	margin: 0 auto;
+`;
 
 const typeColors = {
 	normal: '65655F',
@@ -204,13 +211,13 @@ class Pokemon extends Component {
 				<div className={styles.card_body}>
 					<div className="row align-items-center">
 						<div className='col-md-3'>
-							{this.state.imageLoading ? <img 
-							src={Spinner}
-							alt="spinner"
+							{this.state.imageLoading ? <LottieAnimation 
+							lotti={spinner}
+							height={"40%"}
+							width={"40%"}
 							className="card-img-top d-block mt-2"
-							style={{width:"40%", height: "40%"}}
-							></img> : null }
-							<img 
+							></LottieAnimation> : null }
+							<Sprite 
 							src={this.state.imageUrl} 
 							alt="pokemonImage"
 							className="card-img-top mt-2"
@@ -220,7 +227,7 @@ class Pokemon extends Component {
                     			? null
                     			: { display: "block" }
                 			}>
-							</img>
+							</Sprite>
 						</div>
 						<div className="col-md-9">
 							<h4 className="mx-auto">{this.state.name.toLowerCase()

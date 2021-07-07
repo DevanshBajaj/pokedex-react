@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import {Link} from "react-router-dom";
 
 import styles from "./PokemonCard.module.css";
-import spinner from './spinner.gif';
 import styled from "styled-components";
+import LottieAnimation from "../../Lottie";
+import spinner from "../../lotties/spinner.json";
 
 const Sprite = styled.img`
 	width: 5em;
@@ -40,12 +41,13 @@ class PokemonCard extends Component {
             <h5 className={styles.card_header}>{this.state.pokemonIndex}</h5>
             <div className={styles.card_body}>
               {this.state.imageLoading ? (
-                <img
-                  src={spinner}
+                <LottieAnimation
+                  lotti={spinner}
                   alt="spinner"
-                  style={{ width: "5em", height: "5em" }}
+                  height={"50%"}
+                  width={"50%"}
                   className="card-img-top rounded mx-auto d-block mt-2"
-                ></img>
+                ></LottieAnimation>
               ) : null}
               <Sprite
                 className="card-img-top rounded mx-auto mt-2"
