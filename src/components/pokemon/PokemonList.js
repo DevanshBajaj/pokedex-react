@@ -1,29 +1,46 @@
-import React, { useState,useEffect, lazy, Suspense} from "react";
+import React, {useState,useEffect, lazy, Suspense} from "react";
 import axios from "axios";
 import styles from './PokemonList.module.css'
+import Fuse from 'fuse.js'
 
 const PokemonCard = lazy(() => import('./PokemonCard'))
-
 
 const PokemonList = (props) => {
 	const [url, setUrl] = useState({
 		pokemon: null,
 	});
+	const [search, setSearch] = useState(null)
 	const [filter, setFilter] = useState('')
+	const [result, setResult] = useState('')
 
-
-	useEffect(() => {
-		const fetchData = async () => {
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	useEffect(async () => {
+		try {
 			let res = await axios.get("https://pokeapi.co/api/v2/pokemon/?limit=300");
 			setUrl({ ...url, pokemon: res.data.results });
+			let newState = res.data.results.map(pokemon => pokemon)
+			setSearch(newState)
+		} catch (error) {
+				console.error(error.message)
 		}
-		fetchData()
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
 
+	
+	
 	const handleSearchChange = (event) => {
 		event.preventDefault();
 		setFilter(event.target.value.toLowerCase())
+		const options = {
+			includeScore: true,
+			// equivalent to `keys: [['author', 'tags', 'value']]`
+			keys: ['name', 'url']
+		  }
+		  
+		  const fuse = new Fuse(search, options)
+		  
+		  setResult(fuse.search(filter))
+		  console.log(result)
 	}
 
 	return (
@@ -39,7 +56,7 @@ const PokemonList = (props) => {
 			{url.pokemon ? (
 				<div className="row">
 					{url.pokemon.map(pokemon =>
-						pokemon.name.includes(filter) &&
+						pokemon.name.includes(result) &&
 						(
 						<Suspense key={Math.random().toString()} fallback={<p></p>}>
 							<PokemonCard
@@ -56,4 +73,5 @@ const PokemonList = (props) => {
 		</React.Fragment>
 	);
 }
+
 export default PokemonList;
