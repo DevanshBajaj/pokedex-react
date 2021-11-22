@@ -2,7 +2,7 @@
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: #242424;
+    background-color: #1C1B1F;
     height: 40px;
     margin: 0px;
     padding: .4rem .6rem;
@@ -20,6 +20,6 @@
 
 .navbar img {
     width: 1.5rem;
-    height:1.5rem; 
+    height: 1.5rem;
     margin-right: 0.5rem;
 }

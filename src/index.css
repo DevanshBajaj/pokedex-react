@@ -8,7 +8,7 @@ html {
 
 body {
   margin: 0;
-  background-color:#242424;
+  background-color: #242424;
   color: #F7F2FE;
 }
 
@@ -20,10 +20,11 @@ h2 {
   width: 4px;
   height: 4px;
 }
+
 ::-webkit-scrollbar-track {
-background: #242424;
+  background: #242424;
 }
 
 ::-webkit-scrollbar-thumb {
-background: #CE828E; 
+  background: #CE828E;
 }

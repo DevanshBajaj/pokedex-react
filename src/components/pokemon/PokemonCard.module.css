@@ -5,52 +5,72 @@
     min-width: 0;
     word-wrap: break-word;
     background-clip: border-box;
-    border: 2rem #fff;
-    border-radius: .25rem;
-    box-shadow: 6px 6px rgba(206, 130, 142, 1);
-    -webkit-box-shadow: 6px 6px rgba(206, 130, 142, 1);
-    -moz-box-shadow: 6px 6px rgba(206, 130, 142, 1);
+    z-index: 0;
+    overflow: hidden;
+    border: 1px solid #272529;
+    border-radius: 28px;
+    background-color: #272529;
     -moz-user-select: none;
     user-select: none;
     -webkit-user-select: none;
 }
 
 .card:hover {
-    box-shadow: 4px 4px rgba(206, 130, 142, 1);
-    -webkit-transition: box-shadow .4s ease-in;
-    transition: box-shadow .4s ease-in;
+    transition: all 0.4s ease-out;
+    box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+    top: -4px;
+    border: 1px solid #4d4b4b;
 }
 
-.disabled {
-    box-shadow: 4px 4px rgba(206, 130, 142, 1);
+.card::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -8px;
+    right: -8px;
+    height: 32px;
+    width: 32px;
+    border-radius: 32px;
+    transform: scale(2);
+    transform-origin: 50% 50%;
+    transition: transform 0.25s ease-out;
+}
+
+.card:hover::before {
+    transform: scale(2.15);
 }
 
 .card_header {
-    padding: .5rem 1rem;
+    padding: 12px 24px;
     margin-bottom: 0;
-    background-color: #242424;
-    border-radius: .4rem .4rem 0rem 0rem;
+    background-color: #272529;
+    border-radius: 28px 28px 0rem 0rem;
     color: white;
-    border-bottom: solid .1rem #e4e4e46c;
+    border-bottom: solid .1rem #938F99;
 }
+
 .card_body {
     flex: 1 1 auto;
     padding: 1rem 1rem;
-    background-color: #242424;
-    border-radius: 0rem 0rem .4rem .4rem;
+    background-color: #272529;
+    border-radius: 0rem 0rem 28px 28px;
     color: #fff;
 }
 
 .card_title {
     margin-bottom: .5rem;
+    display: flex;
     text-align: center;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 .card_footer {
-    border-radius: 0rem 0em .4rem .4rem;
+    border-radius: 0rem 0em 28px 28px;
     color: #6c757d;
-    padding: .6rem 1rem;
-    background-color: #242424;
+    background-color: #272529;
+    padding: 12px 24px;
     border-top: solid 0rem #e4e4e46c;
 }
 
