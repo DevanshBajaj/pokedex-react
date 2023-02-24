@@ -385,7 +385,9 @@ class Pokemon extends Component {
 				>
 					<div className={styles.card_header}>
 						<div className={styles.card_body}>
-							<h3 className={styles.card_title}>Profile</h3>
+							<h3 className={styles.card_title}>
+								Profile OF {this.state.name}
+							</h3>
 							<div className="row" style={{ marginTop: "1.5rem" }}>
 								<div className="col-md-6">
 									<div className="row">
